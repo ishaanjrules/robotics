@@ -1,0 +1,15 @@
+int data = 0;
+void setup() {
+pinMode (6, OUTPUT);
+pinMode (7, INPUT);
+}
+
+void loop() {
+data = digitalRead(7); // 0 if PB is not pressed and 1 if PB is pressed
+  if(data == 1){
+    digitalWrite(6, HIGH);
+  }
+  else {
+    digitalWrite(6, LOW);
+  }
+}

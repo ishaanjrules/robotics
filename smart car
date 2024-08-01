@@ -1,0 +1,105 @@
+int ls = 0;
+int ms = 0;
+int rs = 0;
+
+ void forward() {
+  digitalWrite(10, HIGH);
+  digitalWrite(11, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(5, HIGH);
+
+}
+
+void backward() {
+  digitalWrite(10, LOW);
+  digitalWrite(11, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(5, LOW);
+
+}
+
+void left() {
+  digitalWrite(10, HIGH);
+  digitalWrite(11, LOW);
+  digitalWrite(6, HIGH);
+  digitalWrite(5, LOW);
+
+}
+
+void right() {
+  digitalWrite(10, LOW);
+  digitalWrite(11, HIGH);
+  digitalWrite(6, LOW);
+  digitalWrite(5, HIGH);
+
+}
+void setup()
+{
+  pinMode(A0, INPUT);
+  pinMode(A1, INPUT);
+  pinMode(A2, INPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+}
+
+void loop()
+{
+  ls = digitalRead(A0);
+  ms = digitalRead(A1);
+  rs = digitalRead(A2);
+
+if (ls == 0 && ms == 0 && rs == 0) {
+    backward();
+    delay(1000);
+    right();
+    delay(250);
+  }
+  
+  else if (ls == 0 && ms == 0 && rs == 1) {
+     backward();
+    delay(1000);
+     right();
+    delay(250);
+  }
+  
+   else if (ls == 0 && ms == 1 && rs == 0) {
+     backward();
+    delay(1500);
+     right();
+    delay(250);
+  }
+
+   else if (ls == 0 && ms == 1 && rs == 1) {
+     backward();
+    delay(1000);
+     right();
+    delay(250);
+  }
+
+   else if (ls == 1 && ms == 0 && rs == 0) {
+     backward();
+    delay(1000);
+     left();
+    delay(250);
+  }
+
+   else if (ls == 1 && ms == 0 && rs == 1) {
+     backward();
+    delay(1000);
+     left();
+    delay(250);
+  } 
+  
+  else if (ls == 1 && ms == 1 && rs == 0) {
+     backward();
+    delay(1000);
+     left();
+    delay(250);
+  }
+
+   else if (ls == 1 && ms == 1 && rs == 1) {
+     forward();
+  }
+ }
